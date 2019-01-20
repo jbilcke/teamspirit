@@ -20,10 +20,6 @@ export default class Team extends Component {
 
   async componentDidUpdate(prevProps, prevState) {
     if (!prevState.team || prevState.team.id !== this.props.match.params.id) {
-      console.log('update needed', {
-        id: this.props.match.params.id,
-        team: await store.getTeam(this.props.match.params.id),
-      });
       this.setState({
         team: await store.getTeam(this.props.match.params.id)
       });
@@ -60,7 +56,6 @@ export default class Team extends Component {
    * @param {Player} oldPlayer - old player data (optional)
    */
   onFormSubmit = async (newPlayer, oldPlayer) => {
-    console.log('onFormSubmit: ', { newPlayer, oldPlayer });
     if (oldPlayer) {
       await store.updatePlayer(oldPlayer, newPlayer);
     } else {

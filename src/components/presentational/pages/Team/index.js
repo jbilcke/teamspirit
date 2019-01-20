@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import FixedButton from '../../atoms/FixedButton';
 import Header from '../../molecules/Header';
-import Row from '../../atoms/Row';
-import Col from '../../atoms/Col';
 import PlayerCards from '../../organisms/PlayerCards';
 import PlayerForm from '../../organisms/PlayerForm';
 import types from '../../../../core/types';

@@ -9,7 +9,7 @@ const PlayerCards = ({ players, onEdit, onRemove }) =>
     {Array.isArray(players)
       ? players.map(player =>
         <PlayerCard
-          key={player.idPlayer}
+          key={player.id}
           player={player}
           onEdit={onEdit}
           onRemove={onRemove}

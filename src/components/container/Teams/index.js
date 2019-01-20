@@ -16,7 +16,7 @@ class Teams extends Component {
   }
 
   onOpen = (team) => {
-    this.props.history.push(`/team/${team.idTeam}`);
+    this.props.history.push(`/team/${team.id}`);
   }
 
   render() {

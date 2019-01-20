@@ -8,7 +8,7 @@ const TeamCards = ({ teams, onOpen }) =>
   <section className={styles.teamCards}>
     {Array.isArray(teams)
       ? teams.map(team =>
-        <TeamCard key={team.idTeam} team={team} onOpen={onOpen} />) 
+        <TeamCard key={team.id} team={team} onOpen={onOpen} />) 
       : <div className={styles.loader}>Loading teams..</div>}
   </section>;
 

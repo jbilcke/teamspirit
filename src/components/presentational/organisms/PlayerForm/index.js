@@ -1,12 +1,13 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import PrimaryButton from '../../../presentational/atoms/PrimaryButton';
+import SecondaryButton from '../../../presentational/atoms/SecondaryButton';
 import Row from '../../../presentational/atoms/Row';
 import Col from '../../../presentational/atoms/Col';
 import types from '../../../../core/types';
 import styles from './styles.module.scss';
-import placeholder from '../../molecules/PlayerCard/placeholder.png';
 
 // this is our form model, listing editable fields
 const fields = {
@@ -49,16 +50,15 @@ const validationSchema = Yup.object().shape(
 );
 
 const PlayerForm = ({ player, onSubmit, onCancel }) =>
-  player ? <section className={styles.playerForm}>
+  <section className={styles.playerForm}>
     <Formik
       initialValues={
-        // use the player data as initial values if present (this is edit mode)
-        // otherwise use initial values from our model (this is add mode)
-        player ||
+        // use the player data as initial values if present
+        // otherwise use initial values from our model
         Object.entries(fields)
         .reduce((defs, [field, {initial}]) => ({
           ...defs,
-          [field]: initial
+          [field]: (player && player[field]) || initial
         }), {})
       }
       onSubmit={(values, { setSubmitting }) => {
@@ -118,28 +118,24 @@ const PlayerForm = ({ player, onSubmit, onCancel }) =>
               </Col>
             </Row>
           )}
-          <Row>
-            <Col>
-              <button
-                type="button"
-                className={styles.cancel}
-                onClick={onCancel}>
-                Cancel
-              </button>
-            </Col>
-            <Col>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={styles.submit}>
-                Submit
-              </button>
-            </Col>
-          </Row>
+          <div>
+            <SecondaryButton
+              type="button"
+              className={styles.cancel}
+              onClick={onCancel}>
+              Cancel
+            </SecondaryButton>
+            <PrimaryButton
+              type="submit"
+              disabled={isSubmitting}
+              className={styles.submit}>
+              Submit
+            </PrimaryButton>
+          </div>
         </form>);
       }}
     </Formik>
-  </section> : null;
+  </section>;
 
 PlayerForm.propTypes = {
   player: types.Player,

@@ -31,14 +31,13 @@ const store = {
               await delay(1000);
               const team = {
                 ...teams[i],
-                id: shortid(),
+                id: teams[i].idTeam,
                 players: []
               };
       
               const {player} = await sportsdb.players({ team: team.strTeam });
-              console.log('DEBUG:', { team, player });
               if (player) {
-                team.players = player.map(p => ({ ...p, id: shortid() }));
+                team.players = player.map(p => ({ ...p, id: p.idPlayer }));
               }
               local.teams = local.teams.concat(team);
               local.players = local.players.concat(team.players);
@@ -51,8 +50,6 @@ const store = {
         await loadTeam('Paris');
         await delay(2000);
         await loadTeam('Arsenal');
-
-        console.log('sportsdb teams: ', local.teams);
 
         break;
 
@@ -81,7 +78,7 @@ const store = {
   /**
    * Get a team from an id
    * 
-   *  @param {string} teamId - id of the team
+   *  @param {string} id - id of the team
    */
   getTeam: async (id) =>
     local.teams.find(t => t.id === id),
@@ -92,16 +89,16 @@ const store = {
     }
 
     // add some mandatory fields
-    player.id = shortid.generate();
+    player.id = player.idPlayer = shortid.generate();
     player.teams = [];
 
     // add a player to our list of all players
     if (!local.players.includes(player)) {
-      local.players.push(player);
+      local.players.unshift(player);
     }
     // add a player to a specific team
     if (team && !team.players.includes(player)) {
-      team.players.push(player);
+      team.players.unshift(player);
     }
   },
 
@@ -137,8 +134,5 @@ const store = {
     return player;
   },
 }
-
-// for humans only
-window.debug = { local, store };
 
 export default store;

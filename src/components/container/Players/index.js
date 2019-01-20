@@ -46,8 +46,6 @@ export default class Players extends Component {
    * @param {Player} oldPlayer - old player data (optional)
    */
   onFormSubmit = async (newPlayer, oldPlayer) => {
-    console.log('onFormSubmit: ', { newPlayer, oldPlayer });
-    window.store = store;
     if (oldPlayer) {
       await store.updatePlayer(oldPlayer, newPlayer);
     } else {
@@ -71,7 +69,6 @@ export default class Players extends Component {
     });
 
   render() {
-    console.log('players: ', this.state.players);
     return <PlayersPage
       players={this.state.players}
       onEdit={this.onEdit}

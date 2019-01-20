@@ -5,7 +5,6 @@ function requireAll(requireContext) {
 }
 
 function loadStories() {
-  require('../src/stories');
   requireAll(require.context("../src", true, /\.story\.jsx?$/));
 }
 
