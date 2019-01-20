@@ -83,7 +83,7 @@ const store = {
   getTeam: async (id) =>
     local.teams.find(t => t.id === id),
 
-  addPlayer: async (player, team) => {
+  addPlayer: async (player, teamId) => {
     if (!player) {
       throw new Error('player is required');
     }
@@ -97,9 +97,11 @@ const store = {
       local.players.unshift(player);
     }
     // add a player to a specific team
+    const team = local.teams.find(t => t.id === teamId);
     if (team && !team.players.includes(player)) {
       team.players.unshift(player);
     }
+    return player;
   },
 
   updatePlayer: async (player, newData) => {
@@ -111,12 +113,16 @@ const store = {
     return player;
   },
 
-  removePlayer: async (player, team) => {
+  // remove a player from a team, or from everywhere unless
+  // specified
+  removePlayer: async (playerId, teamId) => {
+    const player = local.players.find(p => p.id === playerId);
     if (!player) {
-      throw new Error('player is required');
+      throw new Error('could\'t find player');
     }
     // remove a player from a specific team otherwise remove it
     // from all the teams
+    const team = local.teams.find(t => t.id === teamId);
     if (team) {
       let i = team.players.indexOf(player);
       if (i > -1) { team.players.splice(i, 1); }

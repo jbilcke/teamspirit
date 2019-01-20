@@ -28,12 +28,12 @@ export default class Players extends Component {
     });
   
   /**
-   * Remove a player
+   * Remove a player by id
    * 
-   * @param {Player} player - a player to remove (required)
+   * @param {Player} playerId - a player to remove (required)
    */
-  onRemove = async (player) => {
-    store.removePlayer(player);
+  onRemove = async (playerId) => {
+    store.removePlayer(playerId);
     this.setState({
       players: await store.getPlayers()
     });

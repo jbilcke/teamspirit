@@ -55,7 +55,7 @@ const PlayerCard = ({ player, onEdit, onRemove }) =>
           <Col>
             <button
               className={styles.button}
-              onClick={() => onRemove(player)}>remove</button>
+              onClick={() => onRemove(player.id)}>remove</button>
           </Col> : null}
         </Row> : null}
         {Object.keys(fields)

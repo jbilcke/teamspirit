@@ -38,12 +38,12 @@ export default class Team extends Component {
     });
   
   /**
-   * Remove a player
+   * Remove a player by id
    * 
-   * @param {Player} player - a player to remove (required)
+   * @param {Player} playerId - a player to remove (required)
    */
-  onRemove = async (player) => {
-    store.removePlayer(player);
+  onRemove = async (playerId) => {
+    store.removePlayer(playerId);
     this.setState({
       team: await store.getTeam(this.props.match.params.id)
     });
@@ -59,7 +59,7 @@ export default class Team extends Component {
     if (oldPlayer) {
       await store.updatePlayer(oldPlayer, newPlayer);
     } else {
-      await store.addPlayer(newPlayer, this.state.team);
+      await store.addPlayer(newPlayer, this.state.team && this.state.team.id);
     }
     this.setState({
       team: await store.getTeam(this.props.match.params.id),

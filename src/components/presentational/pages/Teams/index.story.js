@@ -8,6 +8,6 @@ storiesOf('Teams', module)
 .add('default', () => (
     <Teams
       teams={teams}
-      isOpen={action('isOpen')}
+      onOpen={action('onOpen')}
     />
   ));

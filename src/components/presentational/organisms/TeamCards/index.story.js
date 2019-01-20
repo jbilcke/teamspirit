@@ -6,5 +6,8 @@ import { teams } from '../../../../fixtures';
 
 storiesOf('TeamCards', module)
   .add('default', () => (
-    <TeamCards teams={teams} />
+    <TeamCards
+      teams={teams}
+      onOpen={action('onOpen')}
+    />
   ));
