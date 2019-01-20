@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 const Header = ({ title, subtitle }) =>
   <Fragment>
     <h2 className={styles.title}>{title}</h2>
-    {title ? <div className={styles.subtitle}>{subtitle}</div> : null}
+    {subtitle ? <div className={styles.subtitle}>{subtitle}</div> : null}
   </Fragment>;
 
 Header.propTypes = {
