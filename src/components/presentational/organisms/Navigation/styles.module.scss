@@ -1,0 +1,19 @@
+.list {
+  list-style: none;
+  padding: 0px 0px 0px 0px;
+  margin: 50px 0px 0px 0px;
+}
+.link {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #151313;
+  border-radius: 6px;
+  padding: 0.3rem;
+  transition: color 0.4s;
+}
+
+.link:hover {
+  color: #525252;
+}

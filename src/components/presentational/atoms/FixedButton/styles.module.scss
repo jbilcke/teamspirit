@@ -1,0 +1,29 @@
+.button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 30px;
+  font-size: 50px;
+  font-weight: 200;
+  background-color: #079640;
+  color: white;
+  transition: all 0.3s;
+  box-shadow: 0px 2px 4px #031f0e75;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background-color: #14af51;
+}
+
+// icons are always a bit tricky to align
+.icon {
+  position: relative;
+  top: -5px;
+}

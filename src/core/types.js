@@ -1,0 +1,92 @@
+import PropTypes from 'prop-types';
+
+export const Player = PropTypes.shape({
+
+  // custom field
+  id: PropTypes.string.isRequired,
+
+  idPlayer: PropTypes.string.isRequired,
+  idTeam: PropTypes.string.isRequired,
+  idSoccerXML: PropTypes.string.isRequired,
+  idPlayerManager: PropTypes.string,
+  strNationality: PropTypes.string.isRequired,
+  strPlayer: PropTypes.string.isRequired,
+  strTeam: PropTypes.string.isRequired,
+  strSport: PropTypes.string.isRequired,
+  intSoccerXMLTeamID: PropTypes.string,
+  dateBorn: PropTypes.string,
+  dateSigned: PropTypes.string,
+  strSigning: PropTypes.string,
+  strWage: PropTypes.string,
+  strBirthLocation: PropTypes.string,
+  strDescriptionEN: PropTypes.string,
+  strDescriptionFR: PropTypes.string,
+  // plus a few other locale codes..
+  strGender: PropTypes.string,
+  strPosition: PropTypes.string,
+  strCollege: PropTypes.string,
+  strFacebook: PropTypes.string,
+  strWebsite: PropTypes.string,
+  strTwitter: PropTypes.string,
+  strInstagram: PropTypes.string,
+  strYoutube: PropTypes.string,
+  strHeight: PropTypes.string,
+  strWeight: PropTypes.string,
+  intLoved: PropTypes.string,
+  strThumb: PropTypes.string,
+  strCutout: PropTypes.string,
+  strBanner: PropTypes.string,
+  strFanart1: PropTypes.string,
+  strFanart2: PropTypes.string,
+  strFanart3: PropTypes.string,
+  strFanart4: PropTypes.string,
+  strLocked: PropTypes.string,
+});
+
+export const Team = PropTypes.shape({
+
+  // custom field
+  id: PropTypes.string.isRequired,
+  players: PropTypes.arrayOf(Player),
+
+  idTeam: PropTypes.string.isRequired,
+  idSoccerXML: PropTypes.string,
+  intLoved: PropTypes.string,
+  strTeam: PropTypes.string.isRequired,
+  strTeamShort: PropTypes.string,
+  strAlternate: PropTypes.string,
+  intFormedYear: PropTypes.string,
+  strSport: PropTypes.string.isRequired,
+  strLeague: PropTypes.string,
+  idLeague: PropTypes.string,
+  strDivision: PropTypes.string,
+  strManager: PropTypes.string,
+  strStadium: PropTypes.string,
+  strKeywords: PropTypes.string,
+  strRSS: PropTypes.string,
+  strStadiumThumb: PropTypes.string,
+  strStadiumDescription: PropTypes.string,
+  strStadiumLocation: PropTypes.string,
+  intStadiumCapacity: PropTypes.string,
+  strWebsite: PropTypes.string,
+  strFacebook: PropTypes.string,
+  strTwitter: PropTypes.string,
+  strInstagram: PropTypes.string,
+  strDescriptionEN: PropTypes.string,
+  strDescriptionFR: PropTypes.string,
+// plus a few other locale codes..
+  strGender: PropTypes.string,
+  strCountry: PropTypes.string,
+  strTeamBadge: PropTypes.string,
+  strTeamJersey: PropTypes.string,
+  strTeamLogo: PropTypes.string,
+  strTeamFanart1: PropTypes.string,
+  strTeamFanart2: PropTypes.string,
+  strTeamFanart3: PropTypes.string,
+  strTeamFanart4: PropTypes.string,
+  strTeamBanner: PropTypes.string,
+  strYoutube: PropTypes.string,
+  strLocked: PropTypes.string,
+});
+
+export default { Player, Team };
